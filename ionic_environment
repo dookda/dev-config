@@ -13,7 +13,8 @@
    Patht %JAVA_HOME%\bin 
    $javac
    
-   android sdk
-   C:\Users\sakda\AppData\Local\Android\sdk
+   add path
+   C:\Users\sakda\AppData\Local\Android\sdk\platform-tools;C:\Users\sakda\AppData\Local\Android\sdk\tools
+   $
    
    
