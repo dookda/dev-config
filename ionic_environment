@@ -24,6 +24,21 @@
     
 7. genymotion
 
+8. sublime text3
+    install package manager from https://packagecontrol.io/installation#st3
+    install package 
+        Emmet
+        All AutoComplete
+        AngularJS
+        AutoFileName
+        HTML-CSS-JS Prettify
+        Ionic Framework Snippet
+        JavaScript Snippet
+        Sidebar Enhancement
+        
+        PHP Prettify
+        
+    
    
 ## ionic 
    start  ..........  Starts a new Ionic project in the specified PATH
