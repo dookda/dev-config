@@ -49,3 +49,15 @@ Make composer available globally move it to /user/local/bin by
 $ sudo mv composer /usr/local/bin
 Now composer will be available anywhere by simply
 $ composer
+
+#####################
+install git
+sudo apt-get install git
+
+#####################
+install node.js
+sudo apt-get update
+sudo apt-get install nodejs
+sudo apt-get install npm
+
+
