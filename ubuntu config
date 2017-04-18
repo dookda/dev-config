@@ -61,3 +61,6 @@ sudo apt-get install nodejs
 sudo apt-get install npm
 
 
+####################
+install tomcat
+https://www.howtoforge.com/tutorial/how-to-install-apache-tomcat-8-5-on-ubuntu-16-04/
