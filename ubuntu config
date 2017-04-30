@@ -71,15 +71,17 @@ sudo mv composer /usr/local/bin
 composer
 
 #####################
-install git
+# install git
 sudo apt-get install git
 
-#####################
-install node.js
-sudo apt-get update
+# installs nodejs
 sudo apt-get install nodejs
+
+# installs npm
 sudo apt-get install npm
 
+# installs bower via npm
+sudo npm install bower -g
 
 ####################
 install tomcat
