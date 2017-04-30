@@ -33,13 +33,13 @@ sudo apt-get install pgadmin3
 
 
 #####################
-install open ssh
+##install open ssh
 sudo apt-get install openssh-server
 sudo service ssh status
 sudo service ssh restart
 
 #####################
-#install composer
+##install composer
 # Step 1:
 $ sudo apt-get update
 
