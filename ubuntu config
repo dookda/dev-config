@@ -5,8 +5,32 @@ https://www.howtoforge.com/tutorial/install-apache-with-php-and-mysql-on-ubuntu-
 Install PostgreSQL and phpPgAdmin on Ubuntu 16.04
 https://www.howtoforge.com/tutorial/ubuntu-postgresql-installation/
 
+
+#####################
 Install PostGIS on Ubuntu
 http://www.saintsjd.com/2014/08/13/howto-install-postgis-on-ubuntu-trusty.html
+
+# install
+sudo apt-get update
+sudo apt-get install -y postgresql postgresql-contrib
+
+# check version
+sudo psql --version
+
+# this will prompt you for a database password
+sudo -u postgres createuser -P USER_NAME_HERE
+sudo -u postgres createdb -O USER_NAME_HERE DATABASE_NAME_HERE
+
+# test connect database
+psql -h localhost -U USER_NAME_HERE DATABASE_NAME_HERE
+
+# install PostGIS and Add extension
+sudo apt-get install -y postgis postgresql-9.3-postgis-2.1
+sudo -u postgres psql -c "CREATE EXTENSION postgis; CREATE EXTENSION postgis_topology;" DATABASE_NAME_HERE
+
+# install pgAdmin3
+sudo apt-get install pgadmin3
+
 
 #####################
 install open ssh
