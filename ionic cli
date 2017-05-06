@@ -1,0 +1,139 @@
+#start ionic v2
+ionic start projectName blamk --v2
+
+#run server
+ionic serve
+
+#add platform
+ionic platform add android
+
+#add new page
+ionic g page PageName
+
+#cancel
+Ctrl + C
+
+#change port
+ionic serve --port '8888'
+
+#add platform
+ionic platform add ios|android
+
+#build your app 
+ionic build ios|android --prod --release
+
+#test on devices
+ionic run ios|android --device
+
+#launch an emulator
+ionic emulate ios|android
+
+#ionic CLI command
+#ionic version
+ionic -v
+
+#ionic environment
+ionic info
+
+#ionic lab
+ionic serve -l
+
+#upload to ionic cloud
+ionic upload
+
+#view all commmand
+ionic command -h
+
+#list all plugin
+ionic plugin list
+
+#add plugin
+ionic plugin add [plugin name] --save
+
+#remove plugin
+ionic plugin rm [plugin name]# push new page
+
+#generate command
+ionic g [page|compnent|directive|provider|tab]
+
+#move to new folder (โดยไม่ต้องย้าย node folder ไปด้วย)
+npm install
+
+# push new page
+this.navCtrl.push(ContactPage);
+
+# remove page
+this.navCtrl.pop();
+
+# set root page
+this.navCtrl.setRoot(Home);
+
+#service - generate provider
+ionic g provider providerName
+
+
+
+
+############################## typescript ######################################################
+#typescript variable
+let VARIABLE_NAME : TYPE = VALUE
+
+# arrays
+
+let list : number [] = [1,2,3];
+or
+let list : Array<number> = [1,2,3];
+
+# void
+function warnUser(): void{
+  alert("void not return value");
+}
+
+# class
+class Greeter{
+
+  private greeting: string;
+
+  constructor(message: string){
+    this.greeting = message;
+  }
+  public greet(){
+    return "Hello" + this.greeting;
+  }
+}
+
+let greeter:Greeter = new Greeter("world")
+
+#one-way binding 
+{{ expression }}
+
+[target] = "expression"
+bind-target = "expression"
+
+#one-way binding Event
+(target) = "statement"
+on-target = "statement"
+
+#two-way binding
+[(target)] = "expression"
+bindon-target = "expression"
+
+
+#interpolation   
+{{expression}}
+
+#one way binding
+[proerty] = "expression"
+
+#event binding
+(event) = "statement"
+
+#two way binding
+[(ngModel)] = "property"
+
+#build-in directive
+*ngIf     # to hide or display an element
+*ngFor    # to repeat a DOM
+*ngSwitch # switch
+ngStyle   # to apply CSS in line
+ngClass   # add or remove class
