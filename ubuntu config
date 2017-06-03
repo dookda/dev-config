@@ -35,7 +35,7 @@ sudo -u postgres psql -c "CREATE EXTENSION postgis; CREATE EXTENSION postgis_top
 sudo apt-get install pgadmin3
 
 #####################
-install php
+# install php
 
 sudo apt-get install php libapache2-mod-php php-mcrypt php-mysql php-pgsql
 
@@ -46,6 +46,12 @@ sudo nano /var/www/html/info.php
 <?php
 phpinfo();
 ?>
+
+# or
+sudo apt-get install python-software-properties -y ; sudo add-apt-repository ppa:ondrej/php -y
+sudo apt-get update
+sudo apt-get install -y php7.1 php7.1-cgi php7.1-cli php7.1-fpm php7.1-mysql php7.1-mcrypt php7.1-mbstring php7.1-common php7.1-curl php7.1-pgsql
+php -v
 
 #####################
 ##install open ssh
