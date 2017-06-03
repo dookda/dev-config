@@ -31,6 +31,18 @@ sudo -u postgres psql -c "CREATE EXTENSION postgis; CREATE EXTENSION postgis_top
 # install pgAdmin3
 sudo apt-get install pgadmin3
 
+#####################
+install php
+
+sudo apt-get install php libapache2-mod-php php-mcrypt php-mysql php-pgsql
+
+apt-cache search php- | less
+
+sudo nano /var/www/html/info.php
+
+<?php
+phpinfo();
+?>
 
 #####################
 ##install open ssh
