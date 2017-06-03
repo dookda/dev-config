@@ -4,7 +4,10 @@ https://www.howtoforge.com/tutorial/install-apache-with-php-and-mysql-on-ubuntu-
 
 Install PostgreSQL and phpPgAdmin on Ubuntu 16.04
 https://www.howtoforge.com/tutorial/ubuntu-postgresql-installation/
+#####################
+# install apache2
 
+sudo apt-get -y install apache2
 
 #####################
 Install PostGIS on Ubuntu
