@@ -31,6 +31,12 @@ psql -h localhost -U USER_NAME_HERE DATABASE_NAME_HERE
 sudo apt-get install -y postgis postgresql-9.3-postgis-2.1
 sudo -u postgres psql -c "CREATE EXTENSION postgis; CREATE EXTENSION postgis_topology;" DATABASE_NAME_HERE
 
+
+# set password for postgres user
+sudo -u postgres psql postgres
+\password postgres
+\q
+
 # install pgAdmin3
 sudo apt-get install pgadmin3
 
