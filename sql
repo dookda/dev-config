@@ -54,3 +54,33 @@ UNION
            FROM rain_tmd d
           WHERE to_char(d.tstamp, 'DD/MM/YY'::text) = to_char(timezone('Asia/Bangkok'::text, now()), 'DD/MM/YY'::text) AND d.rain > 0::double precision
           ORDER BY d.sta_number, d.tstamp DESC) w;
+
+
+
+// cal rain buffer 50 km
+
+DROP VIEW rain_now_report_ud;
+DROP view rain_station_ud;
+create table rain_station_ud as 
+ WITH provbuf AS (
+  SELECT st_transform(st_buffer(st_transform(p.geom, 32647), 50000), 4326) AS geom,
+        p.gid
+           FROM ud_province_4326 p
+        )
+ SELECT DISTINCT m.geom, m.sta_id, m.sta_name, c.rain_mm, c.tstamp as rain_time, m.sta_source
+   FROM provbuf b, rain_station_th m
+   inner join rain_now c on m.sta_id = c.sta_id
+   WHERE st_intersects(b.geom, m.geom) ;
+   --order by 
+   --AND m.acq_date >= ('now'::text::date - '1 day'::interval)
+
+
+CREATE OR REPLACE VIEW rain_now_report_ud AS 
+ SELECT DISTINCT m.geom,
+    m.sta_id,
+    m.sta_name,
+    c.rain_mm,
+    c.tstamp AS rain_time,
+    m.sta_source
+   FROM rain_station_ud m
+     JOIN rain_now c ON m.sta_id::text = c.sta_id::text;
