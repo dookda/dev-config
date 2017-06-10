@@ -1,5 +1,6 @@
 // st_intersect
-WITH provbuf AS (
+CREATE table rain_station_ud AS 
+ WITH provbuf AS (
          SELECT st_transform(st_buffer(st_transform(p.geom, 32647), 10000::double precision), 4326) AS geom,
             p.gid
            FROM ud_province_4326 p
@@ -8,8 +9,8 @@ WITH provbuf AS (
     m.sta_id,
     m.sta_name,
     m.sta_source
-   FROM provbuf b,
-    rain_station_th m
+   FROM provbuf b,rain_station_th m
+  WHERE st_intersects(b.geom, m.geom);
     
 // union with last update
 
