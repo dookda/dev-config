@@ -79,3 +79,14 @@ CREATE OR REPLACE VIEW rain_now_report_ud AS
     m.sta_id,m.lat, m.lon,m.sta_name,c.rain_mm,c.tstamp AS rain_time,m.sta_source
    FROM rain_station_ud m
      JOIN rain_now c ON m.sta_id::text = c.sta_id::text;
+
+
+
+//union rain station
+select geom, station_id as sta_id, location as sta_name, source as sta_source, latitude as lat, longitude as lon from rain_auto_station
+union
+select geom, station_id as sta_id, village as sta_name, source as sta_source, lat as lat, lng as lon from rain_community_station
+union
+select geom, station_id as sta_id, vill_nam_t as sta_name, source as sta_source, lat as lat, lon as lon from rain_dwr_station
+union
+select geom, sta_number as sta_id, sta_th as sta_name, source as sta_source, lat as lat, lon as lon from rain_tmd_station
