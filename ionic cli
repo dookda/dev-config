@@ -107,6 +107,8 @@ ionic g provider providerName
 #install all codrova plugins listed in package.json
 ionic state restore
 
+ionic plugin add cordova-plugin-geolocation
+
 ############################## typescript ######################################################
 #typescript variable
 let VARIABLE_NAME : TYPE = VALUE
