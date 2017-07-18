@@ -103,7 +103,9 @@ this.navCtrl.setRoot(Home);
 ionic g provider providerName
 
 
-
+################################################################################################
+#install all codrova plugins listed in package.json
+ionic state restore
 
 ############################## typescript ######################################################
 #typescript variable
