@@ -1,0 +1,11 @@
+npm install -g cordova
+npm install -g ionic
+ionic info
+
+npm install -g typescript
+
+ionic start githubIonic tutorial --v2
+
+ionic serve
+
+ionic serve -l
