@@ -1,0 +1,26 @@
+-install osgeo4w and select the following packages:
+  gdal-python
+  python-numpy
+  python-requests
+  python-future
+  wxpython
+
+-dowload pymodis from https://pypi.python.org/pypi/pyModis
+Now decompress and Enter inside the new directory
+    cd pyModis
+
+Install the library with root permission
+    python setup.py install
+
+Now we can try to load the library so
+    python
+
+    Python 2.6.6 (r266:84292, Oct  9 2010, 11:40:09) 
+    [GCC 4.4.5] on linux2
+    Type "help", "copyright", "credits" or "license" for more information.
+    >>> import pymodis
+    
+install Certificate verification via pip    
+  pip install certifi
+  pip install urllib3[secure]
+  
