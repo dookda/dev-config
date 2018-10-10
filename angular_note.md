@@ -12,11 +12,13 @@ npm i bootstrap jquery popper.js --save
 add to angular.json
 ```json
 ...
-"style": [
+"styles": [
   "src/styles.css",
-
+  "./node_modules/bootstrap/dist/css/bootstrap.min.css"
 ],
-"script":[
-  "./node_modules/"
+"scripts": [
+  "./node_modules/jquery/dist/jquery.slim.min.js",
+  "./node_modules/popper.js/dist/umd/popper.min.js",
+  "./node_modules/bootstrap/dist/js/bootstrap.min.js"
 ]
 ```
