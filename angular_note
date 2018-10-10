@@ -1,8 +1,12 @@
 create new angular
 
+```javascript
+var s = "JavaScript syntax highlighting";
+alert(s);
 ```
-function test() {
-  console.log("notice the blank line before this function?");
-}
+ 
+```python
+s = "Python syntax highlighting"
+print s
 ```
 
