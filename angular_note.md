@@ -1,12 +1,22 @@
-create new angular
+create new angular project with routing
 
-```javascript
-var s = "JavaScript syntax highlighting";
-alert(s);
 ```
- 
-```python
-s = "Python syntax highlighting"
-print s
+ng new projectname --routing 
 ```
 
+install bootstrap to project
+```
+npm i bootstrap jquery popper.js --save
+```
+
+add to angular.json
+```json
+...
+"style": [
+  "src/styles.css",
+
+],
+"script":[
+  "./node_modules/"
+]
+```
