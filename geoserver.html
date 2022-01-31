@@ -1,0 +1,175 @@
+///////// revese proxy
+<VirtualHost *:80>
+    ServerName engrids.soc.cmu.ac.th
+    #DocumentRoot /path/to/a/document/root
+
+    ErrorLog logs/error_log
+    CustomLog logs/access_log common
+
+    <Directory /path/to/a/document/root>
+        # This relaxes Apache security settings.
+        AllowOverride all
+        # MultiViews must be turned off.
+        Options -MultiViews
+    </Directory>
+
+    <Location /geoserver>
+        ProxyPass http://localhost:8080/geoserver
+        ProxyPassReverse http://localhost:8080/geoserver
+    </Location>
+
+    <Location /geonetwork>
+        ProxyPass ajp://127.0.0.1:8080/geonetwork
+    </Location>
+
+    <Location /ows/wfs>
+        ProxyPass ajp://127.0.0.1:8080/geoserver/wfs?service=wfs&request=GetCapabilities
+    </Location>
+
+    <Location /ows/wms>
+        ProxyPass ajp://127.0.0.1:8080/geoserver/wms?service=wms&request=GetCapabilities
+    </Location>
+
+    ProxyPreserveHost On
+
+</VirtualHost>
+
+<VirtualHost *:443>
+    ServerName engrids.soc.cmu.ac.th
+    #DocumentRoot /path/to/a/document/root
+
+    ErrorLog logs/error_log
+    CustomLog logs/access_log common
+
+    <Directory /path/to/a/document/root>
+        # This relaxes Apache security settings.
+        AllowOverride all
+        # MultiViews must be turned off.
+        Options -MultiViews
+    </Directory>
+
+    <Location /geoserver>
+        ProxyPass http://localhost:8080/geoserver
+        ProxyPassReverse http://localhost:8080/geoserver
+    </Location>
+
+    <Location /geonetwork>
+        ProxyPass ajp://127.0.0.1:8080/geonetwork
+    </Location>
+
+    <Location /ows/wfs>
+        ProxyPass ajp://127.0.0.1:8080/geoserver/wfs?service=wfs&request=GetCapabilities
+    </Location>
+
+    <Location /ows/wms>
+        ProxyPass ajp://127.0.0.1:8080/geoserver/wms?service=wms&request=GetCapabilities
+    </Location>
+
+    ProxyPreserveHost On
+
+</VirtualHost>
+
+////////////////////
+<VirtualHost *:80>
+    ServerName engrids.soc.cmu.ac.th
+
+    ProxyRequests On
+    <Proxy>
+        Order deny,allow
+        Allow from all
+    </Proxy>
+    ProxyPass /geoserver/ http://localhost:8080/geoserver/
+    ProxyPassReverse /geoserver/ http://localhost:8080/geoserver/
+
+    ProxyPass /api/ http://localhost:3700/
+    ProxyPassReverse /api/ http://localhost:3700/
+
+    Header set Access-Control-Allow-Origin "*"
+
+</VirtualHost>
+<VirtualHost *:443>
+    ServerName engrids.soc.cmu.ac.th
+
+    ProxyRequests On
+    ProxyPreserveHost On
+    <Proxy>
+        Order deny,allow
+        Allow from all
+    </Proxy>
+    ProxyPass /geoserver/ http://localhost:8080/geoserver/
+    ProxyPassReverse /geoserver/ http://localhost:8080/geoserver/
+
+    ProxyPass /api/ http://localhost:3700/
+    ProxyPassReverse /api/ http://localhost:3700/
+
+    Header set Access-Control-Allow-Origin "*"
+
+</VirtualHost>
+
+
+
+<VirtualHost *:443>
+    ServerName engrids.soc.cmu.ac.th
+
+    ProxyRequests On
+    ProxyPreserveHost On
+    <Proxy>
+        Order deny,allow
+        Allow from all
+    </Proxy>
+    ProxyPass /geoserver/ http://localhost:8080/geoserver/
+    ProxyPassReverse /geoserver/ http://localhost:8080/geoserver/
+
+    ProxyPass /geoserver2/ http://localhost:8080/geoserver2/
+    ProxyPassReverse /geoserver2/ http://localhost:8080/geoserver2/
+
+    ProxyPass /api/ http://localhost:3700/
+    ProxyPassReverse /api/ http://localhost:3700/
+
+    Header set Access-Control-Allow-Origin "*"
+
+</VirtualHost>
+
+
+
+<Location /geoserver>
+    ProxyPass http://localhost:8080/geoserver
+    ProxyPassReverse http://localhost:8080/geoserver
+    Order allow,deny
+    Allow from all
+</Location>
+
+<Location /geoserver2>
+    ProxyPass http://localhost:8080/geoserver2
+    ProxyPassReverse http://localhost:8080/geoserver2
+    Order allow,deny
+    Allow from all
+</Location>
+
+
+//////////////
+<VirtualHost *:443>
+    ServerName engrids.soc.cmu.ac.th
+
+    RewriteEngine on
+    ProxyPass /api http://localhost:3700
+    ProxyPassReverse /api http://localhost:3700
+
+    RewriteEngine on
+    ProxyPass /geoserver http://localhost:8080/geoserver
+    ProxyPassReverse /geoserver http://localhost:8080/geoserver
+
+
+</VirtualHost>
+
+
+/////////// GEOSERVER_CSRF
+<context-param>
+    <param-name>PROXY_BASE_URL</param-name>
+    <param-value>https://engrids.soc.cmu.ac.th/geoserver</param-value>
+</context-param>
+
+<context-param>
+    <param-name>GEOSERVER_CSRF_DISABLED</param-name>
+    <param-value>true</param-value>
+</context-param>
